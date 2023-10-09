@@ -7,12 +7,13 @@ class SmallComp : public juce::Component
 public:
     SmallComp()
     {
+        setRepaintsOnMouseActivity(true);
         setMouseCursor(juce::MouseCursor::PointingHandCursor);
     }
 
     void paint(juce::Graphics& g)
     {
-        g.fillAll(juce::Colours::red);
+        g.fillAll(isMouseButtonDown() ? juce::Colours::green : juce::Colours::red);
     }
 };
 
